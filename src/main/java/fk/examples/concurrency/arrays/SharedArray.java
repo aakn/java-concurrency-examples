@@ -22,7 +22,7 @@ public class SharedArray {
     int writeTo = index;
 
     try {
-      Thread.sleep(random.nextInt(100));
+      Thread.sleep(random.nextInt(300));
     } catch (InterruptedException e) {
       log.error("an error", e);
     }
