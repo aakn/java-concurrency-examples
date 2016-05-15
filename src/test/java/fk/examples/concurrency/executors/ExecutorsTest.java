@@ -27,25 +27,12 @@ public class ExecutorsTest {
     log.info("Starting the test");
 
     ExecutorService executorService = Executors.newCachedThreadPool();
-    executorService.execute(getRunnable("task 1"));
-    executorService.execute(getRunnable("task 2"));
-    executorService.execute(getRunnable("task 3"));
+    executorService.execute(new PrintRunnable("task 1"));
+    executorService.execute(new PrintRunnable("task 2"));
+    executorService.execute(new PrintRunnable("task 3"));
 
     executorService.shutdown();
     executorService.awaitTermination(10L, TimeUnit.SECONDS);
-  }
-
-  private Runnable getRunnable(final String taskName) {
-    return () -> {
-      log.info("Starting {}", taskName);
-      try {
-        int millis = random.nextInt(3000);
-        log.info("going to sleep for {} for task", millis, taskName);
-        Thread.sleep(millis);
-      } catch (InterruptedException e) {
-        log.error("an exception", e);
-      }
-      log.info("done with {}", taskName);
-    };
+    log.info("done with the test");
   }
 }
