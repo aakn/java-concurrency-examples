@@ -14,11 +14,13 @@ import lombok.extern.slf4j.Slf4j;
 public class ExecutorsTest {
 
   Random random;
+  ExecutorService executorService;
 
 
   @Before
   public void setUp() throws Exception {
     random = new Random();
+    executorService = Executors.newCachedThreadPool();
   }
 
   @Test
@@ -26,7 +28,6 @@ public class ExecutorsTest {
 
     log.info("Starting the test");
 
-    ExecutorService executorService = Executors.newCachedThreadPool();
     executorService.execute(new PrintRunnable("task 1"));
     executorService.execute(new PrintRunnable("task 2"));
     executorService.execute(new PrintRunnable("task 3"));
