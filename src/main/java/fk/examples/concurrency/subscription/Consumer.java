@@ -19,7 +19,7 @@ public class Consumer implements Runnable {
   public void run() {
     int total = 0;
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i <= 10; i++) {
       try {
         Thread.sleep(random.nextInt(1000));
         int value = sharedBuffer.blockingGet();
