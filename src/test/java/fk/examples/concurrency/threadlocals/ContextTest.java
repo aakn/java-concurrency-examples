@@ -45,6 +45,8 @@ public class ContextTest {
     executorService.shutdown();
     executorService.awaitTermination(1L, TimeUnit.MINUTES);
 
+    log.info("what's the context {}", Context.getId());
+
   }
 
   private Runnable getRunnable(String id) {
