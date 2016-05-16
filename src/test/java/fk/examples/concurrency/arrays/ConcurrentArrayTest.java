@@ -31,7 +31,5 @@ public class ConcurrentArrayTest {
     executorService.awaitTermination(1L, TimeUnit.MINUTES);
 
     log.info("array state: {}", array);
-
-
   }
 }
